@@ -1,0 +1,6 @@
+.Card{
+    height: 300px;
+    margin: auto;
+    box-shadow: 5px 10px lightgrey;
+    background-color: #73C3FB;
+}
