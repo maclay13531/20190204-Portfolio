@@ -1,0 +1,34 @@
+.MyDescription {
+    width: 40%;
+    height: 300px;
+    display: block;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+
+.MyDescription p {
+    font-family: Helvetica;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 2;
+}
+
+@media (max-width: 700px)  {
+    .MyDescription {
+        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .MyDescription p {
+        font-size: 13px;
+    }
+}
+
+@media(max-width: 1000px) {
+    .MyDescription {
+        width: 100%;
+        margin-left: 10px;
+    }
+}
+
