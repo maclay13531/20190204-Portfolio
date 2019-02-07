@@ -4,10 +4,11 @@ import styles from './Card.module.css';
 
 const card = (props) => {
     return (
-        <div 
-        className={styles.Card} 
-        style={{width: props.width}}>
-            {props.children}
+        <div className={styles.Card}>
+            <div className={styles.ImageBox}>
+
+            </div>
+            {props.projectName}
         </div>
     );
 };
