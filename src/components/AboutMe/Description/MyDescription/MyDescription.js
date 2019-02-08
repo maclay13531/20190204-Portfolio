@@ -8,8 +8,8 @@ const myDescription = (props) => {
         <div className={styles.MyDescription}>
             <p>Hello! My name is Jong park, a web developer & software engineer from Atlanta Georgia.
             As an engineer, there is nothing more satisfying than being a creator of
-            well developed projects and regardless of size of your projects,
-            let me take care of your problems!</p>
+            well developed projects, and no matter the size of your projects,
+            let me solve your problems!</p>
             <MySkill />
         </div>
     );
