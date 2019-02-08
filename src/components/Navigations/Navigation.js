@@ -7,7 +7,9 @@ import IntroPanel from './IntroPanel/IntroPanel';
 const navigation = (props) => {
     return (
         <Aux>
-            <TopNav />
+            <TopNav
+            aboutMeView={props.aboutMeView}
+            projectView={props.projectView}/>
             <IntroPanel />
         </Aux>
     );

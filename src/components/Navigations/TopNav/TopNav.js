@@ -5,8 +5,8 @@ import styles from './TopNav.module.css';
 const topNav = (props) => {
     return (
         <nav className={styles.TopNav}>
-            <div>About Me</div>
-            <div>Projects</div>
+            <div onClick={props.aboutMeView}>About Me</div>
+            <div onClick={props.projectView}>Projects</div>
             <div>Contact</div>
         </nav>
     );

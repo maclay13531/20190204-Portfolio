@@ -3,12 +3,12 @@ import React from 'react';
 import Project from './Project/Project';
 import styles from './Projects.module.css';
 
-const projects = (props) => {
+const projects = React.forwardRef((props, ref) => {
     return (
-        <div className={styles.Projects}>
+        <div className={styles.Projects} ref={ref}>
             <Project />
         </div>
     );
-}
+});
 
 export default projects;

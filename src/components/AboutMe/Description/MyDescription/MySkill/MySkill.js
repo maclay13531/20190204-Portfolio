@@ -11,7 +11,7 @@ import python from '../../../../../images/Python.jpg';
 import cshop from '../../../../../images/Cshop.png';
 
 const iconsToDisplay = [
-    { label: 'Javascript', link: javascript },
+    { label: 'javascript', link: javascript },
     { label: 'html', link: html },
     { label: 'css', link: css },
     { label: 'jquery', link: jquery },
