@@ -7,7 +7,7 @@ const topNav = (props) => {
         <nav className={styles.TopNav}>
             <div onClick={props.aboutMeView}>About Me</div>
             <div onClick={props.projectView}>Projects</div>
-            <div>Contact</div>
+            <div onClick={props.contactView}>Contact</div>
         </nav>
     );
 };

@@ -6,7 +6,7 @@ import styles from './Projects.module.css';
 const projects = React.forwardRef((props, ref) => {
     return (
         <div className={styles.Projects} ref={ref}>
-            <Project />
+            <Project projectStart={props.projectStart}/>
         </div>
     );
 });

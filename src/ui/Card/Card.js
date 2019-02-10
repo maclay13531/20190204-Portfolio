@@ -3,8 +3,6 @@ import React from 'react';
 import styles from './Card.module.css';
 
 const card = (props) => {
-
-    console.log(props.projectRelatedIcons)
     return (
         <div className={styles.Card}>
             <div className={styles.ImageBox}>
@@ -23,7 +21,7 @@ const card = (props) => {
                     );
                 })}
             </div>
-            <button>Start</button>
+            <button type='button' disabled={props.projectDisabled} onClick={props.projectStart}>Start</button>
         </div>
     );
 };

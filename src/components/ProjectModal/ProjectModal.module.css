@@ -1,0 +1,66 @@
+.ProjectModal {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #e9e9e9;
+    z-index: 150;
+    transition: transform 0.3s ease-out;
+}
+
+.Open {
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100%);
+}
+
+.ProjectModal img {
+    width: 100%;
+    height: 400px;
+}
+
+.SideMargin {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+}
+
+
+.ProjectModal button {
+    width: 90px;
+    height: 45px;
+    border: none;
+    background-color: #4682b4;
+    color: white;
+    font-family: helvetica;
+    font-size: 16px;
+    float: right;
+    position: relative;
+    top: 100px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 50;
+}
+
+.ProjectModal button:hover {
+    background-image: linear-gradient(to right, #73C3FB, #4682b4);
+}
+
+@media (max-width: 700px)  {
+    .ProjectModal img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .SideMargin {
+        width: 100%;
+        height: 100%;
+    }
+
+    .ProjectModal button {
+        width: 60px;
+        height: 30px;
+    }
+}

@@ -5,6 +5,7 @@
     top: 0;
     background-color: #73C3FB;
     display: flex;
+    z-index: 90;
 }
 
 .TopNav div { 

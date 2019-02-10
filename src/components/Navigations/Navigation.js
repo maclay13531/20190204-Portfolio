@@ -9,7 +9,8 @@ const navigation = (props) => {
         <Aux>
             <TopNav
             aboutMeView={props.aboutMeView}
-            projectView={props.projectView}/>
+            projectView={props.projectView}
+            contactView={props.contactView}/>
             <IntroPanel />
         </Aux>
     );
