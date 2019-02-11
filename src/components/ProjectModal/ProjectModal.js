@@ -1,8 +1,20 @@
 import React from 'react';
 
-import weatherDetailerImage from '../../images/WeatherProjectImage.jpg'
-import binaryTreeMakerImage from '../../images/BinaryTreeMaker.png'
-import styles from './ProjectModal.module.css'
+import weatherDetailerImage from '../../images/WeatherProjectImage.jpg';
+import binaryTreeMakerImage from '../../images/BinaryTreeMaker.png';
+import Aux from '../../hoc/Auxiliary';
+import ProjectController from './ProjectController/ProjectController';
+import styles from './ProjectModal.module.css';
+
+const weatherDetailerProjectController = [
+    { label: 'City Name' },
+    { label: 'Zip Code' }
+];
+
+const binaryTreeMakerProjectController = [
+    { label: 'Insert' },
+    { label: 'Remove' }
+];
 
 const projectModal = (props) => {
     let mainDivClass = [styles.ProjectModal, styles.Open];
@@ -13,10 +25,34 @@ const projectModal = (props) => {
     let projectToRender = null;
     switch (props.projectLabel) {
         case ('Weather Detailer'):
-            projectToRender = <img src={weatherDetailerImage} alt='Weather Detailer'></img>;
+            projectToRender = (
+                <Aux>
+                    <div>
+                        <img src={weatherDetailerImage} alt='Weather Detailer'></img>
+                    </div>
+                    <div className={styles.ProjectController}>
+                        {weatherDetailerProjectController.map((ctl, index) => {
+                            return (
+                                <ProjectController controllerLabel={ctl.label} key={index} />
+                            );
+                        })}
+                    </div>
+                </Aux>
+            );
             break;
         case ('Binary Tree Maker'):
-            projectToRender = <img src={binaryTreeMakerImage} alt='Binary Tree Maker'></img>;
+            projectToRender = (
+                <Aux>
+                    <img src={binaryTreeMakerImage} alt='Binary Tree Maker'></img>
+                    <div className={styles.ProjectController}>
+                        {binaryTreeMakerProjectController.map((ctl, index) => {
+                            return (
+                                <ProjectController controllerLabel={ctl.label} key={index} />
+                            );
+                        })}
+                    </div>
+                </Aux>
+            );
             break;
         default:
             break;
@@ -32,4 +68,4 @@ const projectModal = (props) => {
     );
 };
 
-export default projectModal;
+export default projectModal;;
