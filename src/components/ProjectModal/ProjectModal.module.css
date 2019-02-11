@@ -2,7 +2,7 @@
     width: 100%;
     height: 100vh;
     position: fixed;
-    background-color: #e9e9e9;
+    background-color: white;
     z-index: 150;
     transition: transform 0.3s ease-out;
 }
@@ -17,20 +17,28 @@
 
 .ProjectModal img {
     width: 100%;
-    height: 400px;
+    height: 340px;
     vertical-align: middle;
 }
 
 .SideMargin {
-    width: 50%;
+    width: 55%;
     height: 100%;
     margin: auto;
-    background-color: white;
+    background-color: #e9e9e9;
 }
 
 .ProjectController {
     width: 100%;
     display: flex;
+}
+
+.ProjectOverview {
+    width: 95%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .ProjectModal button {

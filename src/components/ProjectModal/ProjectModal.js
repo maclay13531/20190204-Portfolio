@@ -4,17 +4,33 @@ import weatherDetailerImage from '../../images/WeatherProjectImage.jpg';
 import binaryTreeMakerImage from '../../images/BinaryTreeMaker.png';
 import Aux from '../../hoc/Auxiliary';
 import ProjectController from './ProjectController/ProjectController';
+import ProjectOverview from './ProjectOverview/ProjectOverview';
 import styles from './ProjectModal.module.css';
 
 const weatherDetailerProjectController = [
-    { label: 'City Name' },
-    { label: 'Zip Code' }
+    { label: 'City Name:' },
+    { label: 'Zip Code:' }
+];
+
+const weatherDetailerProjectOverview = [
+    { label: 'City' },
+    { label: 'Temp' },
+    { label: 'Description' },
+    { label: 'Humidity' }
 ];
 
 const binaryTreeMakerProjectController = [
-    { label: 'Insert' },
-    { label: 'Remove' }
+    { label: 'Insert:' },
+    { label: 'Remove:' }
 ];
+
+const binaryTreeMakerProjectOverview = [
+    { label: 'Root' },
+    { label: 'Total Count' },
+    { label: 'Highest Number' },
+    { label: 'Lowest Number' }
+];
+
 
 const projectModal = (props) => {
     let mainDivClass = [styles.ProjectModal, styles.Open];
@@ -37,6 +53,13 @@ const projectModal = (props) => {
                             );
                         })}
                     </div>
+                    <div className={styles.ProjectOverview}>
+                        {binaryTreeMakerProjectOverview.map((panel, index) => {
+                            return (
+                                <ProjectOverview panelLabel={panel.label} key={index} />
+                            );
+                        })}
+                    </div>
                 </Aux>
             );
             break;
@@ -48,6 +71,13 @@ const projectModal = (props) => {
                         {binaryTreeMakerProjectController.map((ctl, index) => {
                             return (
                                 <ProjectController controllerLabel={ctl.label} key={index} />
+                            );
+                        })}
+                    </div>
+                    <div className={styles.ProjectOverview}>
+                        {weatherDetailerProjectOverview.map((panel, index) => {
+                            return (
+                                <ProjectOverview panelLabel={panel.label} key={index} />
                             );
                         })}
                     </div>
