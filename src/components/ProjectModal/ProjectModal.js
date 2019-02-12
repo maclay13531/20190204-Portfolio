@@ -60,6 +60,11 @@ const projectModal = (props) => {
                             );
                         })}
                     </div>
+                    <div className={styles.ProjectContent}>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
+                    </div>
                 </Aux>
             );
             break;
@@ -80,6 +85,11 @@ const projectModal = (props) => {
                                 <ProjectOverview panelLabel={panel.label} key={index} />
                             );
                         })}
+                    </div>
+                    <div className={styles.ProjectContent}>
+                        <div>test</div>
+                        <div>test</div>
+                        <div>test</div>
                     </div>
                 </Aux>
             );
