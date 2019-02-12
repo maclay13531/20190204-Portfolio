@@ -5,6 +5,10 @@ import binaryTreeMakerImage from '../../images/BinaryTreeMaker.png';
 import Aux from '../../hoc/Auxiliary';
 import ProjectController from './ProjectController/ProjectController';
 import ProjectOverview from './ProjectOverview/ProjectOverview';
+import WeatherDetailContent from './ProjectContent/WeatherDetailContent/WeatherDetailContent';
+import WeatherDetailCodePen from './ProjectContent/WeatherDetailCodePen/WeatherDetailCodePen';
+import BinaryTreeMakerContent from './ProjectContent/BinaryTreeMakerContent/BinaryTreeMakerContent';
+import BinaryTreeMakeCodePen from './ProjectContent/BinaryTreeMakerCodePen/BinaryTreeMakerCodePen';
 import styles from './ProjectModal.module.css';
 
 const weatherDetailerProjectController = [
@@ -61,9 +65,8 @@ const projectModal = (props) => {
                         })}
                     </div>
                     <div className={styles.ProjectContent}>
-                        <div>test</div>
-                        <div>test</div>
-                        <div>test</div>
+                        <WeatherDetailContent />
+                        <WeatherDetailCodePen />
                     </div>
                 </Aux>
             );
@@ -87,9 +90,8 @@ const projectModal = (props) => {
                         })}
                     </div>
                     <div className={styles.ProjectContent}>
-                        <div>test</div>
-                        <div>test</div>
-                        <div>test</div>
+                        <BinaryTreeMakerContent />
+                        <BinaryTreeMakeCodePen />
                     </div>
                 </Aux>
             );

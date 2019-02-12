@@ -1,0 +1,17 @@
+.BinaryTreeMakeCodePen {
+    width: 35%;
+    background-color: white;
+    box-shadow: 0 8px 6px -6px #808080;
+}
+
+.BinaryTreeMakeCodePen .Label {
+    text-align: center;    
+    font-family: helvetica;
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #939393;
+}
+
+.BinaryTreeMakeCodePen .Chart {
+    height: 250px;
+}
