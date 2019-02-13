@@ -8,7 +8,7 @@ const projectOverview = (props) => {
             <div className={styles.Label}>
                 {props.panelLabel}
             </div>
-            <div className={styles.LabelInfo}></div>
+            <div className={styles.LabelInfo}>{props.value}</div>
         </div>
     );
 };

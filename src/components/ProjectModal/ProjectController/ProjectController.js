@@ -6,7 +6,9 @@ const projectController = (props) => {
     return (
         <div className={styles.ProjectController}>
             {props.controllerLabel}
-            <input type='text' />
+            <input 
+            type='text' 
+            onKeyPress={(event) => props.pressedEnter(event, props.controllerLabel)}/>
         </div>
     );
 };
