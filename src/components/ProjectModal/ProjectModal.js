@@ -27,7 +27,7 @@ class ProjectModal extends Component {
         city: [
             { label: 'City', output: null },
             { label: 'Temp', output: null },
-            { label: 'Description', output: null },
+            { label: 'Desc', output: null },
             { label: 'Humidity', output: null }
         ],
         weatherData: null,
@@ -101,6 +101,17 @@ class ProjectModal extends Component {
                     });
             }
         }
+    }
+
+    resetState = () => {
+        this.setState({
+            city: [
+                { label: 'City', output: null },
+                { label: 'Temp', output: null },
+                { label: 'Desc', output: null },
+                { label: 'Humidity', output: null }
+            ]
+        })
     }
 
     render() {
@@ -183,7 +194,7 @@ class ProjectModal extends Component {
             <div className={mainDivClass.join(' ')} >
                 <div className={styles.SideMargin}>
                     {projectToRender}
-                    <button onClick={this.props.projectClose}>Close</button>
+                    <button onClick={()=>{this.props.projectClose(); this.resetState()}}>Close</button>
                 </div>
             </div>
         );

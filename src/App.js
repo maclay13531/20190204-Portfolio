@@ -13,7 +13,13 @@ class App extends Component {
     projectRef: React.createRef(),
     contactRef: React.createRef(),
     projectModalShow: false,
-    projectLabel: 'not set'
+    projectLabel: 'not set',
+    cityInfo: [
+      { label: 'City', output: null },
+      { label: 'Temp', output: null },
+      { label: 'Description', output: null },
+      { label: 'Humidity', output: null }
+  ]
   }
 
   aboutMeScrollToContentHandler = () => {
@@ -32,7 +38,7 @@ class App extends Component {
     let projectModalShow = this.state.projectModalShow;
     this.setState({
       projectModalShow: !projectModalShow,
-      projectLabel: type
+      projectLabel: type,
     });
     document.body.style.overflow = 'hidden';
   }
@@ -51,7 +57,7 @@ class App extends Component {
         <ProjectModal
           show={this.state.projectModalShow}
           projectClose={this.projectCloseHandler}
-          projectLabel={this.state.projectLabel} />
+          projectLabel={this.state.projectLabel}/>
         <Navigation
           aboutMeView={this.aboutMeScrollToContentHandler}
           projectView={this.projectsScrollToContentHandler}
