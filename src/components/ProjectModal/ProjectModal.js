@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 import weatherDetailerImage from '../../images/WeatherProjectImage.jpg';
 import binaryTreeMakerImage from '../../images/BinaryTreeMaker.png';
@@ -21,21 +22,22 @@ const binaryTreeMakerProjectController = [
 
 class ProjectModal extends Component {
     state = {
-        cityName: 'N/A',
-        cityZip: 'N/A',
+        cityName: null,
+        cityZip: null,
         city: [
-            { label: 'City', output: 'N/A' },
-            { label: 'Temp', output: 'N/A' },
-            { label: 'Description', output: 'N/A' },
-            { label: 'Humidity', output: 'N/A' }
+            { label: 'City', output: null },
+            { label: 'Temp', output: null },
+            { label: 'Description', output: null },
+            { label: 'Humidity', output: null }
         ],
-        treeNodeInsert: 'N/A',
-        treeNodeDelete: 'N/A',
+        weatherData: null,
+        treeNodeInsert: null,
+        treeNodeDelete: null,
         tree: [
-            { label: 'Root', output: 'N/A' },
-            { label: 'Total Count', output: 'N/A' },
-            { label: 'Highest Number', output: 'N/A' },
-            { label: 'Lowest Number', output: 'N/A' }
+            { label: 'Root', output: null },
+            { label: 'Total Count', output: null },
+            { label: 'Highest Number', output: null },
+            { label: 'Lowest Number', output: null }
         ]
     }
 
@@ -59,8 +61,37 @@ class ProjectModal extends Component {
         }
     }
 
+    componentDidUpdate = () => {
+        if (this.state.cityName || this.state.cityZip) {
+            if (!this.state.cityZip) {
+                let cityName = this.state.cityName;
+                let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
+                axios.get(url)
+                    .then(response => {
+                        console.log(response);
+                        this.setState({
+                            weatherData: response.data,
+                            cityName: null,
+                            cityZip: null
+                        })
+                    });
+            } else {
+                let cityZip = this.state.cityZip;
+                let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
+                axios.get(url)
+                    .then(response => {
+                        console.log(response);
+                        this.setState({
+                            weatherData: response.data,
+                            cityName: null,
+                            cityZip: null
+                        })
+                    });
+            }
+        }
+    }
+
     render() {
-        console.log(this.state)
         let mainDivClass = [styles.ProjectModal, styles.Open];
         if (!this.props.show) {
             mainDivClass = [styles.ProjectModal, styles.Close];
@@ -78,24 +109,26 @@ class ProjectModal extends Component {
                             {weatherDetailerProjectController.map((ctl, index) => {
                                 return (
                                     <ProjectController
-                                    controllerLabel={ctl.label}
-                                    pressedEnter={this.userSubmitHandler}
-                                    key={index} />
+                                        controllerLabel={ctl.label}
+                                        pressedEnter={this.userSubmitHandler}
+                                        key={index} />
                                 );
                             })}
                         </div>
                         <div className={styles.ProjectOverview}>
                             {this.state.city.map((panel, index) => {
                                 return (
-                                    <ProjectOverview 
-                                    panelLabel={panel.label}
-                                    value={panel.output} 
-                                    key={index} />
+                                    <ProjectOverview
+                                        panelLabel={panel.label}
+                                        value={panel.output}
+                                        key={index} />
                                 );
                             })}
                         </div>
                         <div className={styles.ProjectContent}>
-                            <WeatherDetailContent />
+                            <WeatherDetailContent
+                                cityName={this.state.cityName}
+                                cityZip={this.state.cityZip} />
                         </div>
                     </Aux>
                 );
@@ -117,10 +150,10 @@ class ProjectModal extends Component {
                         <div className={styles.ProjectOverview}>
                             {this.state.tree.map((panel, index) => {
                                 return (
-                                    <ProjectOverview 
-                                    panelLabel={panel.label}
-                                    value={panel.output}
-                                    key={index} />
+                                    <ProjectOverview
+                                        panelLabel={panel.label}
+                                        value={panel.output}
+                                        key={index} />
                                 );
                             })}
                         </div>
@@ -134,8 +167,8 @@ class ProjectModal extends Component {
                 break;
         }
 
-        return(
-            <div className = { mainDivClass.join(' ') } >
+        return (
+            <div className={mainDivClass.join(' ')} >
                 <div className={styles.SideMargin}>
                     {projectToRender}
                     <button onClick={this.props.projectClose}>Close</button>

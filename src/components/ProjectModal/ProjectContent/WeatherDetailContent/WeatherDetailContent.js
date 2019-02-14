@@ -1,5 +1,6 @@
 import React from 'react';
 
+import WeatherDetailChart from './WeatherDetailChart/WeatherDetailChart';
 import styles from './WeatherDetailContent.module.css';
 
 const weatherDetailContent = (props) => {
@@ -9,7 +10,9 @@ const weatherDetailContent = (props) => {
                 Weather Chart
             </div>
             <div className={styles.Chart}>
-
+                <WeatherDetailChart 
+                cityName={props.cityName}
+                cityZip={props.cityZip}/>
             </div>
         </div>
     );
