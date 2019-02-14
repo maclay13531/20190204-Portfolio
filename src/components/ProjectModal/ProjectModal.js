@@ -68,7 +68,13 @@ class ProjectModal extends Component {
                 let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
                 axios.get(url)
                     .then(response => {
-                        console.log(response);
+                        let cityInfo = {
+                            ...this.state.city
+                        }
+                        cityInfo[0].output = response.data.name;
+                        cityInfo[1].output = response.data.main.temp;
+                        cityInfo[2].output = response.data.weather[0].main;
+                        cityInfo[3].output = response.data.main.humidity;
                         this.setState({
                             weatherData: response.data,
                             cityName: null,
@@ -80,7 +86,13 @@ class ProjectModal extends Component {
                 let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
                 axios.get(url)
                     .then(response => {
-                        console.log(response);
+                        let cityInfo = {
+                            ...this.state.city
+                        }
+                        cityInfo[0].output = response.data.name;
+                        cityInfo[1].output = response.data.main.temp;
+                        cityInfo[2].output = response.data.weather[0].main;
+                        cityInfo[3].output = response.data.main.humidity;
                         this.setState({
                             weatherData: response.data,
                             cityName: null,

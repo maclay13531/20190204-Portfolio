@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import { BarChart } from 'react-easy-chart';
 import styles from './WeatherDetailChart.module.css';
 
 class WeatherDetailChart extends Component {
     state = {
-        weatherData: null,
+        weatherData: [
+            { x: 'A', y: 20 },
+            { x: 'B', y: 30 },
+            { x: 'C', y: 40 },
+            { x: 'D', y: 20 },
+            { x: 'E', y: 40 },
+            { x: 'F', y: 25 },
+            { x: 'G', y: 5 }
+        ],
         cityName: null,
         cityZip: null
     }
@@ -42,7 +51,14 @@ class WeatherDetailChart extends Component {
 
     render() {
         return (
-            <div className={styles.WeatherDetailChart}></div>
+            <div className={styles.WeatherDetailChart}>
+                <BarChart
+                    data={this.state.weatherData}
+                    axes
+                    colorBars
+                    width={500}
+                    height={250}/>
+            </div>
         );
     }
 }
