@@ -110,8 +110,8 @@ class WeatherDetailChart extends Component {
                     margin={this.state.chartMargin}
                     data={this.state.weatherData}
                     axes
-                    yDomainRange={[-20, 120]}
-                    yTickNumber={8}
+                    yDomainRange={[0, 100]}
+                    yTickNumber={5}
                     grid
                 />
             </div>

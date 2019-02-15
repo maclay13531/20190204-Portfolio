@@ -3,7 +3,7 @@ import React from 'react';
 import Card from '../../../ui/Card/Card';
 import styles from './Project.module.css';
 import weatherImage from '../../../images/WeatherProjectImage.jpg';
-import binaryTreeImage from '../../../images/BinaryTreeMaker.png';
+import typeForNoReasonImage from '../../../images/TypeForNoReason.jpeg';
 import comingSoonImage from '../../../images/ComingSoon.png';
 import javascript from '../../../images/Javascript.png';
 import html from '../../../images/Html.png';
@@ -11,7 +11,7 @@ import css from '../../../images/Css.png';
 import react from '../../../images/React.png';
 import ajax from '../../../images/Ajax.png';
 import d3 from '../../../images/D3.png';
-import binaryTreeIcon from '../../../images/BinaryTreeMakerIcon.png';
+import regex from '../../../images/Regex.jpg';
 
 const weatherDetailerDescription = 'Type in your favorite city and let WD tell you all about its weather analytically!';
 const weatherDetailerRequiredIcons = [
@@ -22,14 +22,15 @@ const weatherDetailerRequiredIcons = [
     { label: 'ajax', link: ajax },
     { label: 'd3', link: d3 }
 ];
-const binaryTreeMakerRequiredIcons = [
+const typeForNoReasonTreeMakerRequiredIcons = [
     { label: 'javascript', link: javascript },
     { label: 'html', link: html },
     { label: 'css', link: css },
     { label: 'react', link: react },
-    { label: 'binaryTree', link: binaryTreeIcon }
+    { label: 'regex', link: regex },
+    { label: 'd3', link: d3 }
 ];
-const binaryTreeMakerDescription = 'Make cyber world more green by implementing tree. A binary tree that is!';
+const typeForNoReasonTreeMakerDescription = 'Type then enter! Your gibberi.. I mean your sentence will be analyzed!';
 const comingSoonRequiredIcons = [
     { label: 'javascript', link: javascript },
     { label: 'html', link: html },
@@ -45,10 +46,10 @@ const projectsToDisplay = [
         disabled: false
     },
     { 
-        label: 'Binary Tree Maker', 
-        link: binaryTreeImage, 
-        description: binaryTreeMakerDescription,
-        requiredIcons: binaryTreeMakerRequiredIcons,
+        label: 'Type For No Reason', 
+        link: typeForNoReasonImage, 
+        description: typeForNoReasonTreeMakerDescription,
+        requiredIcons: typeForNoReasonTreeMakerRequiredIcons,
         disabled: false
     },
     {

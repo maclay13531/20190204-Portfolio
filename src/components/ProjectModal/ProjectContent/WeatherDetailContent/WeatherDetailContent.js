@@ -7,7 +7,7 @@ const weatherDetailContent = (props) => {
     return (
         <div className={styles.WeatherDetailContent}>
             <div className={styles.Label}> 
-                Daily forecast Chart
+                Daily Forecast
             </div>
             <div className={styles.Chart}>
                 <WeatherDetailChart 

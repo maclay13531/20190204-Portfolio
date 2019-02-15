@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import weatherDetailerImage from '../../images/WeatherProjectImage.jpg';
-import binaryTreeMakerImage from '../../images/BinaryTreeMaker.png';
+import typeForNoReason from '../../images/TypeForNoReason.jpeg';
 import Aux from '../../hoc/Auxiliary';
 import ProjectController from './ProjectController/ProjectController';
 import ProjectOverview from './ProjectOverview/ProjectOverview';
 import WeatherDetailContent from './ProjectContent/WeatherDetailContent/WeatherDetailContent';
-import BinaryTreeMakerContent from './ProjectContent/BinaryTreeMakerContent/BinaryTreeMakerContent';
+import TypeForNoReasonContent from './ProjectContent/TypeForNoReasonContent/TypeForNoReasonContent';
 import styles from './ProjectModal.module.css';
 
 const weatherDetailerProjectController = [
@@ -15,9 +15,8 @@ const weatherDetailerProjectController = [
     { label: 'Zip Code:' }
 ];
 
-const binaryTreeMakerProjectController = [
-    { label: 'Insert:' },
-    { label: 'Remove:' }
+const typeForNoReasonProjectController = [
+    { label: 'Insert:' }
 ];
 
 class ProjectModal extends Component {
@@ -33,22 +32,18 @@ class ProjectModal extends Component {
         weatherData: null,
         treeNodeInsert: null,
         treeNodeDelete: null,
-        tree: [
-            { label: 'Root', output: null },
-            { label: 'Total Count', output: null },
-            { label: 'Highest Number', output: null },
-            { label: 'Lowest Number', output: null }
+        typeForNoReason: [
+            { label: 'Letter Count', output: null },
+            { label: 'Word Count', output: null },
+            { label: 'Space Count', output: null },
+            { label: 'Punct Count', output: null }
         ]
     }
 
     userSubmitHandler = (event, type) => {
-        if (event.key === 'Enter' && type === binaryTreeMakerProjectController[0].label) {
+        if (event.key === 'Enter' && type === typeForNoReasonProjectController[0].label) {
             this.setState({
                 treeNodeInsert: event.target.value
-            });
-        } else if (event.key === 'Enter' && type === binaryTreeMakerProjectController[1].label) {
-            this.setState({
-                treeNodeDelete: event.target.value
             });
         } else if (event.key === 'Enter' && type === weatherDetailerProjectController[0].label) {
             this.setState({
@@ -156,12 +151,12 @@ class ProjectModal extends Component {
                     </Aux>
                 );
                 break;
-            case ('Binary Tree Maker'):
+            case ('Type For No Reason'):
                 projectToRender = (
                     <Aux>
-                        <img src={binaryTreeMakerImage} alt='Binary Tree Maker'></img>
+                        <img src={typeForNoReason} alt='Type For No Reason'></img>
                         <div className={styles.ProjectController}>
-                            {binaryTreeMakerProjectController.map((ctl, index) => {
+                            {typeForNoReasonProjectController.map((ctl, index) => {
                                 return (
                                     <ProjectController
                                         controllerLabel={ctl.label}
@@ -171,7 +166,7 @@ class ProjectModal extends Component {
                             })}
                         </div>
                         <div className={styles.ProjectOverview}>
-                            {this.state.tree.map((panel, index) => {
+                            {this.state.typeForNoReason.map((panel, index) => {
                                 return (
                                     <ProjectOverview
                                         panelLabel={panel.label}
@@ -181,7 +176,7 @@ class ProjectModal extends Component {
                             })}
                         </div>
                         <div className={styles.ProjectContent}>
-                            <BinaryTreeMakerContent />
+                            <TypeForNoReasonContent />
                         </div>
                     </Aux>
                 );
