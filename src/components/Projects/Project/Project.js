@@ -13,24 +13,18 @@ import ajax from '../../../images/Ajax.png';
 import d3 from '../../../images/D3.png';
 import regex from '../../../images/Regex.jpg';
 
-const weatherDetailerDescription = 'Type in your favorite city and let WD tell you all about its weather analytically!';
+const weatherDetailerDescription = 'Type in your favorite city and let WD tell you all about its weather!';
 const weatherDetailerRequiredIcons = [
-    { label: 'javascript', link: javascript },
-    { label: 'html', link: html },
-    { label: 'css', link: css },
     { label: 'react', link: react },
     { label: 'ajax', link: ajax },
     { label: 'd3', link: d3 }
 ];
 const typeForNoReasonTreeMakerRequiredIcons = [
-    { label: 'javascript', link: javascript },
-    { label: 'html', link: html },
-    { label: 'css', link: css },
     { label: 'react', link: react },
     { label: 'regex', link: regex },
     { label: 'd3', link: d3 }
 ];
-const typeForNoReasonTreeMakerDescription = 'Type then enter! Your gibberi.. I mean your sentence will be analyzed!';
+const typeForNoReasonTreeMakerDescription = 'Type then enter. Your gibberi.. I mean your sentence will be analyzed!';
 const comingSoonRequiredIcons = [
     { label: 'javascript', link: javascript },
     { label: 'html', link: html },
@@ -38,16 +32,16 @@ const comingSoonRequiredIcons = [
 ];
 const comingSoonDescription = 'Under Construction!';
 const projectsToDisplay = [
-    { 
-        label: 'Weather Detailer', 
-        link: weatherImage, 
-        description: weatherDetailerDescription, 
+    {
+        label: 'Weather Detailer',
+        link: weatherImage,
+        description: weatherDetailerDescription,
         requiredIcons: weatherDetailerRequiredIcons,
         disabled: false
     },
-    { 
-        label: 'Type For No Reason', 
-        link: typeForNoReasonImage, 
+    {
+        label: 'Type For No Reason',
+        link: typeForNoReasonImage,
         description: typeForNoReasonTreeMakerDescription,
         requiredIcons: typeForNoReasonTreeMakerRequiredIcons,
         disabled: false
@@ -66,14 +60,14 @@ const project = (props) => {
         <div className={styles.Project}>
             {projectsToDisplay.map(projects => {
                 return (
-                    <Card 
-                    projectName={projects.label} 
-                    projectDescription={projects.description}
-                    projectRelatedIcons={projects.requiredIcons}
-                    projectDisabled={projects.disabled}
-                    projectStart={() => props.projectStart(projects.label)}
-                    key={projects.label}>
-                        <img src={projects.link} alt={projects.label} key={projects.label} /> 
+                    <Card
+                        projectName={projects.label}
+                        projectDescription={projects.description}
+                        projectRelatedIcons={projects.requiredIcons}
+                        projectDisabled={projects.disabled}
+                        projectStart={() => props.projectStart(projects.label)}
+                        key={projects.label}>
+                        <img src={projects.link} alt={projects.label} key={projects.label} />
                     </Card>
                 );
             })}

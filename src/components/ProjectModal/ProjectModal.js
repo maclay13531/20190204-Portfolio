@@ -30,8 +30,7 @@ class ProjectModal extends Component {
             { label: 'Humidity', output: null }
         ],
         weatherData: null,
-        treeNodeInsert: null,
-        treeNodeDelete: null,
+        userSentence: null,
         typeForNoReason: [
             { label: 'Letter Count', output: null },
             { label: 'Word Count', output: null },
@@ -43,7 +42,7 @@ class ProjectModal extends Component {
     userSubmitHandler = (event, type) => {
         if (event.key === 'Enter' && type === typeForNoReasonProjectController[0].label) {
             this.setState({
-                treeNodeInsert: event.target.value
+                userSentence: event.target.value
             });
         } else if (event.key === 'Enter' && type === weatherDetailerProjectController[0].label) {
             this.setState({
@@ -56,6 +55,23 @@ class ProjectModal extends Component {
         }
     }
 
+    resetState = () => {
+        this.setState({
+            city: [
+                { label: 'City', output: null },
+                { label: 'Temp', output: null },
+                { label: 'Desc', output: null },
+                { label: 'Humidity', output: null }
+            ],
+            typeForNoReason: [
+                { label: 'Letter Count', output: null },
+                { label: 'Word Count', output: null },
+                { label: 'Space Count', output: null },
+                { label: 'Punct Count', output: null }
+            ]
+        })
+    }
+
     componentDidUpdate = () => {
         if (this.state.cityName || this.state.cityZip) {
             if (!this.state.cityZip) {
@@ -65,7 +81,7 @@ class ProjectModal extends Component {
                     .then(response => {
                         let cityInfo = {
                             ...this.state.city
-                        }
+                        };
                         cityInfo[0].output = response.data.name;
                         cityInfo[1].output = response.data.main.temp;
                         cityInfo[2].output = response.data.weather[0].main;
@@ -96,17 +112,24 @@ class ProjectModal extends Component {
                     });
             }
         }
-    }
 
-    resetState = () => {
-        this.setState({
-            city: [
-                { label: 'City', output: null },
-                { label: 'Temp', output: null },
-                { label: 'Desc', output: null },
-                { label: 'Humidity', output: null }
-            ]
-        })
+        if (this.state.userSentence) {
+            let letterCount = this.state.userSentence.replace(/[^a-zA-Z]/g, '').length;
+            let wordCount = this.state.userSentence.trim().replace(/[^a-zA-Z\s]*$/, "").replace(/\s\s+/g, ' ').trim().split(' ').length;
+            let spaceCount = this.state.userSentence.replace(/[a-zA-Z.,#!?$%&;:{}=\-_`~()]/g, '').length;
+            let punctCount = this.state.userSentence.replace(/[^.,#!?$%&;:{}=\-_`~()]/g, "").length;
+            let sentenceInfo = [
+                ...this.state.typeForNoReason
+            ];
+            sentenceInfo[0].output = letterCount;
+            sentenceInfo[1].output = wordCount;
+            sentenceInfo[2].output = spaceCount;
+            sentenceInfo[3].output = punctCount;
+            this.setState({
+                userSentence: null,
+                typeForNoReason: sentenceInfo
+            })
+        }
     }
 
     render() {
@@ -176,7 +199,8 @@ class ProjectModal extends Component {
                             })}
                         </div>
                         <div className={styles.ProjectContent}>
-                            <TypeForNoReasonContent />
+                            <TypeForNoReasonContent
+                                userSentence={this.state.userSentence} />
                         </div>
                     </Aux>
                 );
@@ -189,7 +213,7 @@ class ProjectModal extends Component {
             <div className={mainDivClass.join(' ')} >
                 <div className={styles.SideMargin}>
                     {projectToRender}
-                    <button onClick={()=>{this.props.projectClose(); this.resetState()}}>Close</button>
+                    <button onClick={() => { this.props.projectClose(); this.resetState() }}>Close</button>
                 </div>
             </div>
         );

@@ -8,14 +8,14 @@ import styles from './WeatherDetailChart.module.css';
 class WeatherDetailChart extends Component {
     state = {
         weatherData: [
-            { x: 'A', y: -20, color: '#4682b4' },
-            { x: 'B', y: -20, color: '#4682b4' },
-            { x: 'C', y: -20, color: '#4682b4' },
-            { x: 'D', y: -20, color: '#4682b4' },
-            { x: 'E', y: -20, color: '#4682b4' },
-            { x: 'F', y: -20, color: '#4682b4' },
-            { x: 'G', y: -20, color: '#4682b4' },
-            { x: 'H', y: -20, color: '#4682b4' }
+            { x: 'A', y: 0, color: '#4682b4' },
+            { x: 'B', y: 0, color: '#4682b4' },
+            { x: 'C', y: 0, color: '#4682b4' },
+            { x: 'D', y: 0, color: '#4682b4' },
+            { x: 'E', y: 0, color: '#4682b4' },
+            { x: 'F', y: 0, color: '#4682b4' },
+            { x: 'G', y: 0, color: '#4682b4' },
+            { x: 'H', y: 0, color: '#4682b4' }
         ],
         cityName: null,
         cityZip: null,
