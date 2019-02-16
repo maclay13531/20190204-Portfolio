@@ -1,5 +1,46 @@
 .Contact {
     width: 100%;
-    height: 400px;
+    height: 250px;
     border-top: 2px solid #e9e9e9;
+    font-family: Helvetica;
 }
+
+.Contact .Content {
+    width: 600px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.Contact .GeneralInfo {
+    padding-top: 50px;
+}
+
+.GeneralInfoLabel {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.GeneralInfo p {
+    font-size: 15px;
+}
+
+@media (max-width: 700px)  {
+    .Contact .Content {
+        width: 280px;
+    }
+
+    .Contact .GeneralInfo {
+        padding-top: 30px;
+    }
+    
+    .GeneralInfoLabel {
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .GeneralInfo p {
+        font-size: 12px;
+    }
+}
+
