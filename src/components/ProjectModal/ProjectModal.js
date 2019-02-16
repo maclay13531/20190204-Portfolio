@@ -76,7 +76,7 @@ class ProjectModal extends Component {
         if (this.state.cityName || this.state.cityZip) {
             if (!this.state.cityZip) {
                 let cityName = this.state.cityName;
-                let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
+                let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
                 axios.get(url)
                     .then(response => {
                         let cityInfo = {
@@ -94,7 +94,7 @@ class ProjectModal extends Component {
                     });
             } else {
                 let cityZip = this.state.cityZip;
-                let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
+                let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
                 axios.get(url)
                     .then(response => {
                         let cityInfo = {

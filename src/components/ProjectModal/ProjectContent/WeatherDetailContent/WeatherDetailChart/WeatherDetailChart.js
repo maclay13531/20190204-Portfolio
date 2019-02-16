@@ -27,7 +27,7 @@ class WeatherDetailChart extends Component {
         if (this.props.cityName || this.props.cityZip) {
             if (this.props.cityName && this.state.cityName !== this.props.cityName) {
                 let cityName = this.props.cityName;
-                let url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
+                let url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
                 axios.get(url)
                     .then(response => {
                         let cityData = [];
@@ -50,7 +50,7 @@ class WeatherDetailChart extends Component {
                     });
             } else if (this.props.cityZip && this.state.cityZip !== this.props.cityZip) {
                 let cityZip = this.props.cityZip;
-                let url = `https://api.openweathermap.org/data/2.5/forecast?zip=${cityZip}&units=imperial&appid=e8e54db34d0507b93196869e892e7ae6`;
+                let url = `https://api.openweathermap.org/data/2.5/forecast?zip=${cityZip}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
                 axios.get(url)
                     .then(response => {
                         let cityData = [];
