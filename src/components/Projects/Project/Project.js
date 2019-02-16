@@ -24,7 +24,7 @@ const typeForNoReasonTreeMakerRequiredIcons = [
     { label: 'regex', link: regex },
     { label: 'd3', link: d3 }
 ];
-const typeForNoReasonTreeMakerDescription = 'Type then enter. Your gibberi.. I mean your sentence will be analyzed!';
+const typeForNoReasonTreeMakerDescription = 'Type then enter and your gibberi.. I mean your sentence will be analyzed!';
 const comingSoonRequiredIcons = [
     { label: 'javascript', link: javascript },
     { label: 'html', link: html },

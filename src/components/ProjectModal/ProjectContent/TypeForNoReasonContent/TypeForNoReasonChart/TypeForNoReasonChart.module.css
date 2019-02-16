@@ -1,0 +1,21 @@
+.TypeForNoReason {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1100px) {
+    .ChartThree {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    .TypeForNoReason {
+        margin-left: 15%;
+    }
+
+    .ChartOne {
+        display: none;
+    }
+}
