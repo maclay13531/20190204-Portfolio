@@ -48,7 +48,7 @@
     margin-right: 10px;
 }
 
-.Card button {
+.Card .CardButton {
     width: 90px;
     height: 45px;
     border: none;
@@ -64,11 +64,11 @@
     z-index: 50;
 }
 
-.Card button:hover {
+.CardButton:hover {
     background-image: linear-gradient(to right, #73C3FB, #4682b4);
 }
 
-.Card button:disabled {
+.CardButton:disabled {
     cursor: not-allowed;
 }
 
@@ -100,7 +100,7 @@
         height: 30px;
     }
 
-    .Card button {
+    .CardButton {
         width: 60px;
         height: 30px;
         bottom: 0;

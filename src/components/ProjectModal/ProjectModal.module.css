@@ -1,17 +1,17 @@
 .ProjectModal {
     width: 100%;
-    height: 100vh;
-    position: fixed;
     background-color: white;
     z-index: 150;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.5s ease-out;
 }
 
 .Open {
+    height: 880px;
     transform: translateX(0);
 }
 
 .Close {
+    height: 0px;
     transform: translateX(-100%);
 }
 
@@ -49,7 +49,7 @@
     justify-content: space-between;
 }
 
-.ProjectModal button {
+.ProjectModalButton {
     width: 90px;
     height: 45px;
     border: none;
@@ -59,17 +59,27 @@
     font-size: 16px;
     float: right;
     position: relative;
-    top: 20px;
+    bottom: 45px;
     right: 30px;
     cursor: pointer;
     z-index: 50;
 }
 
-.ProjectModal button:hover {
+
+.ProjectModal .ButtonMargin {
+    margin-top: 60px;
+}
+
+.ProjectModalButton:hover {
     background-image: linear-gradient(to right, #73C3FB, #4682b4);
 }
 
 @media (max-width: 700px)  {
+    .Open {
+        height: 770px;
+        transform: translateX(0);
+    }
+
     .ProjectModal img {
         width: 100%;
         height: 200px;
@@ -80,37 +90,8 @@
         height: 100%;
     }
 
-    .ProjectModal button {
+    .ProjectModalButton {
         width: 60px;
         height: 30px;
-    }
-}
-
-@media (max-height: 560px) {
-    .ProjectOverview {
-        margin-top: 10px;
-    }
-
-    .ProjectContent {
-        margin-top: 10px;
-    }
-
-    .ProjectModal button {
-        width: 60px;
-        height: 20px;
-        font-size: 12px;
-        top: 10px;
-    }
-}
-
-@media (max-height: 775px) {
-    .ProjectModal img {
-        display: none;
-    }
-}
-
-@media (max-height: 870px) {
-    .ProjectModal img {
-        height: 200px;
     }
 }

@@ -21,13 +21,3 @@
     font-size: 16px;
     padding: 10px;
 }
-
-@media (max-height: 700px) {
-    .ProjectOverview .Label {
-        font-size: 10px;
-    }
-    
-    .ProjectOverview .LabelInfo {
-        font-size: 11px;
-    }
-}

@@ -6,6 +6,7 @@ import AboutMe from './components/AboutMe/AboutMe';
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import ProjectModal from './components/ProjectModal/ProjectModal';
+import styles from './App.module.css';
 
 class App extends Component {
   state = {
@@ -19,7 +20,7 @@ class App extends Component {
       { label: 'Temp', output: null },
       { label: 'Description', output: null },
       { label: 'Humidity', output: null }
-  ]
+    ]
   }
 
   aboutMeScrollToContentHandler = () => {
@@ -40,7 +41,6 @@ class App extends Component {
       projectModalShow: !projectModalShow,
       projectLabel: type,
     });
-    document.body.style.overflow = 'hidden';
   }
 
   projectCloseHandler = () => {
@@ -48,25 +48,31 @@ class App extends Component {
       projectModalShow: false,
       projectLabel: 'not set'
     });
-    document.body.style.overflow = 'visible';
   }
 
   render() {
+    let DisplaySwitcher = [];
+    if (this.state.projectModalShow) {
+      DisplaySwitcher = [styles.AppHide];
+    }
+
     return (
       <Layout>
         <ProjectModal
           show={this.state.projectModalShow}
           projectClose={this.projectCloseHandler}
-          projectLabel={this.state.projectLabel}/>
-        <Navigation
-          aboutMeView={this.aboutMeScrollToContentHandler}
-          projectView={this.projectsScrollToContentHandler}
-          contactView={this.contactScrollToContentHandler} />
-        <AboutMe ref={this.state.aboutMeRef} />
-        <Projects
-          ref={this.state.projectRef}
-          projectStart={this.projectStartHandler} />
-        <Contact ref={this.state.contactRef} />
+          projectLabel={this.state.projectLabel} />
+        <div className={DisplaySwitcher.join(' ')}>
+          <Navigation
+            aboutMeView={this.aboutMeScrollToContentHandler}
+            projectView={this.projectsScrollToContentHandler}
+            contactView={this.contactScrollToContentHandler} />
+          <AboutMe ref={this.state.aboutMeRef} />
+          <Projects
+            ref={this.state.projectRef}
+            projectStart={this.projectStartHandler} />
+          <Contact ref={this.state.contactRef} />
+        </div>
       </Layout>
     );
   }

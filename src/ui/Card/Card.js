@@ -21,7 +21,7 @@ const card = (props) => {
                     );
                 })}
             </div>
-            <button type='button' disabled={props.projectDisabled} onClick={props.projectStart}>Start</button>
+            <button className={styles.CardButton} type='button' disabled={props.projectDisabled} onClick={props.projectStart}>Start</button>
         </div>
     );
 };

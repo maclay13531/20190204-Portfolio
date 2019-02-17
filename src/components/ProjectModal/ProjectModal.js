@@ -134,8 +134,10 @@ class ProjectModal extends Component {
 
     render() {
         let mainDivClass = [styles.ProjectModal, styles.Open];
+        let buttonClass= [styles.ProjectModalButton, styles.ButtonMargin];
         if (!this.props.show) {
             mainDivClass = [styles.ProjectModal, styles.Close];
+            buttonClass = [styles.ProjectModalButton];
         }
 
         let projectToRender = null;
@@ -213,7 +215,7 @@ class ProjectModal extends Component {
             <div className={mainDivClass.join(' ')} >
                 <div className={styles.SideMargin}>
                     {projectToRender}
-                    <button onClick={() => { this.props.projectClose(); this.resetState() }}>Close</button>
+                    <button className={buttonClass.join(' ')} onClick={() => { this.props.projectClose(); this.resetState() }}>Close</button>
                 </div>
             </div>
         );
