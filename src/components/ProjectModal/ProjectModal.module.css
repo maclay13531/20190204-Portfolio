@@ -86,8 +86,31 @@
     }
 }
 
-@media (max-height: 700px) {
+@media (max-height: 560px) {
+    .ProjectOverview {
+        margin-top: 10px;
+    }
+
+    .ProjectContent {
+        margin-top: 10px;
+    }
+
+    .ProjectModal button {
+        width: 60px;
+        height: 20px;
+        font-size: 12px;
+        top: 10px;
+    }
+}
+
+@media (max-height: 775px) {
     .ProjectModal img {
         display: none;
+    }
+}
+
+@media (max-height: 870px) {
+    .ProjectModal img {
+        height: 200px;
     }
 }

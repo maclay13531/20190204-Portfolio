@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styles from './MyImage.module.css';
-import myProfile from '../../../../images/Placement.jpg';
+import myProfile from '../../../../images/MyProfile.jpg';
 
 const myImage = (props) => {
     return (

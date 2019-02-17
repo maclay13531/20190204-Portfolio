@@ -1,19 +1,23 @@
 .Contact {
     width: 100%;
-    height: 250px;
+    height: 200px;
     border-top: 2px solid #e9e9e9;
+    background-color: #e9e9e9;
+    font-family: Helvetica;
     font-family: Helvetica;
 }
 
 .Contact .Content {
     width: 600px;
-    height: 250px;
+    height: 200px;
     margin-left: auto;
     margin-right: auto;
+    display: flex;
 }
 
 .Contact .GeneralInfo {
     padding-top: 50px;
+    flex: 1;
 }
 
 .GeneralInfoLabel {
@@ -25,13 +29,29 @@
     font-size: 15px;
 }
 
+.Contact .ContactIcons {
+    padding-top: 50px;
+    flex: 1;
+}
+
+.ContactIcons div {
+    float: right;
+}
+
+.ContactIcons img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
 @media (max-width: 700px)  {
     .Contact .Content {
         width: 280px;
+        display: block;
     }
 
     .Contact .GeneralInfo {
-        padding-top: 30px;
+        padding-top: 20px;
     }
     
     .GeneralInfoLabel {
@@ -41,6 +61,12 @@
     
     .GeneralInfo p {
         font-size: 12px;
+    }
+
+    .ContactIcons img {
+        width: 35px;
+        height: 35px;
+        margin-right: 10px;
     }
 }
 
