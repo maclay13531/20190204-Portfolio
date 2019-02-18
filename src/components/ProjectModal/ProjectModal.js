@@ -9,10 +9,19 @@ import ProjectOverview from './ProjectOverview/ProjectOverview';
 import WeatherDetailContent from './ProjectContent/WeatherDetailContent/WeatherDetailContent';
 import TypeForNoReasonContent from './ProjectContent/TypeForNoReasonContent/TypeForNoReasonContent';
 import styles from './ProjectModal.module.css';
+import Swal from 'sweetalert2';
+
+let initialMessageWD = document.createElement('div');
+initialMessageWD.style.textAlign = 'left';
+initialMessageWD.style.fontSize = '14px';
+
+let initialMessageTFNR = document.createElement('div');
+initialMessageTFNR.style.textAlign = 'left';
+initialMessageTFNR.style.fontSize = '14px';
 
 const weatherDetailerProjectController = [
-    { label: 'City Name:' },
-    { label: 'Zip Code:' }
+    { label: 'City Name or Zip Code:' },
+    // { label: 'Zip Code:' }
 ];
 
 const typeForNoReasonProjectController = [
@@ -36,7 +45,9 @@ class ProjectModal extends Component {
             { label: 'Word Count', output: null },
             { label: 'Space Count', output: null },
             { label: 'Punct Count', output: null }
-        ]
+        ],
+        initialMessageDisplayWD: true,
+        initialMessageDisplayTFNR: true
     }
 
     userSubmitHandler = (event, type) => {
@@ -57,6 +68,8 @@ class ProjectModal extends Component {
 
     resetState = () => {
         this.setState({
+            cityName: null,
+            cityZip: null,
             city: [
                 { label: 'City', output: null },
                 { label: 'Temp', output: null },
@@ -76,7 +89,12 @@ class ProjectModal extends Component {
         if (this.state.cityName || this.state.cityZip) {
             if (!this.state.cityZip) {
                 let cityName = this.state.cityName;
-                let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+                let url;
+                if (cityName.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/)) {
+                    url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityName}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;    
+                } else {
+                    url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+                }
                 axios.get(url)
                     .then(response => {
                         let cityInfo = {
@@ -92,25 +110,26 @@ class ProjectModal extends Component {
                             cityZip: null
                         })
                     });
-            } else {
-                let cityZip = this.state.cityZip;
-                let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
-                axios.get(url)
-                    .then(response => {
-                        let cityInfo = {
-                            ...this.state.city
-                        }
-                        cityInfo[0].output = response.data.name;
-                        cityInfo[1].output = response.data.main.temp;
-                        cityInfo[2].output = response.data.weather[0].main;
-                        cityInfo[3].output = response.data.main.humidity;
-                        this.setState({
-                            weatherData: response.data,
-                            cityName: null,
-                            cityZip: null
-                        })
-                    });
-            }
+            } 
+            // else {
+            //     let cityZip = this.state.cityZip;
+            //     let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+            //     axios.get(url)
+            //         .then(response => {
+            //             let cityInfo = {
+            //                 ...this.state.city
+            //             }
+            //             cityInfo[0].output = response.data.name;
+            //             cityInfo[1].output = response.data.main.temp;
+            //             cityInfo[2].output = response.data.weather[0].main;
+            //             cityInfo[3].output = response.data.main.humidity;
+            //             this.setState({
+            //                 weatherData: response.data,
+            //                 cityName: null,
+            //                 cityZip: null
+            //             })
+            //         });
+            // }
         }
 
         if (this.state.userSentence) {
@@ -130,11 +149,56 @@ class ProjectModal extends Component {
                 typeForNoReason: sentenceInfo
             })
         }
+
+        if (this.props.projectLabel === 'Weather Detailer' && this.state.initialMessageDisplayWD === true) {
+            initialMessageWD.innerHTML =
+                '<div><strong>Summary</strong></div>' +
+                '<div>Integration of weather API call and D3 data chart.</div>' +
+                '<div>Displaying the current info as well as daily forcast temps.</div>' +
+                '<div><strong>Instruction</strong></div>' +
+                '<div>Type a city name or zip code then press Enter!</div>' +
+                '<div><strong>Limitation</strong></div>' +
+                '<div>Current limit of API calls are 60 times per minute.</div>' +
+                '<div>For visibility, bar chart Y domain is set from 0 to 100.</div>';
+            Swal.fire({
+                title: 'Weather Detailer',
+                html: initialMessageWD,
+                type: 'info',
+                confirmButtonText: "I'm ready!",
+                allowOutsideClick: false,
+            });
+            this.setState({
+                initialMessageDisplayWD: false
+            })
+        }
+
+        if (this.props.projectLabel === 'Type For No Reason' && this.state.initialMessageDisplayTFNR === true) {
+            initialMessageTFNR.innerHTML =
+                '<div><strong>Summary</strong></div>' +
+                '<div>Collaboration of RegExr and D3 data chart.</div>' +
+                "<div>Computate users' sentence and send various count info.</div>" +
+                '<div><strong>Instruction</strong></div>' +
+                '<div>Type any sentence to your desire then press Enter!</div>' +
+                '<div><strong>Limitation</strong></div>' +
+                '<div>All three charts are visible at min-width of 1200px.</div>' +
+                '<div>Two charts are visible from width of 750px to 1200px</div>' +
+                '<div>a chart is visible at max-width of 750px.</div>';
+            Swal.fire({
+                title: 'Type For No Reason',
+                html: initialMessageTFNR,
+                type: 'info',
+                confirmButtonText: "I'm ready!",
+                allowOutsideClick: false,
+            });
+            this.setState({
+                initialMessageDisplayTFNR: false
+            })
+        }
     }
 
     render() {
         let mainDivClass = [styles.ProjectModal, styles.Open];
-        let buttonClass= [styles.ProjectModalButton, styles.ButtonMargin];
+        let buttonClass = [styles.ProjectModalButton, styles.ButtonMargin];
         if (!this.props.show) {
             mainDivClass = [styles.ProjectModal, styles.Close];
             buttonClass = [styles.ProjectModalButton];

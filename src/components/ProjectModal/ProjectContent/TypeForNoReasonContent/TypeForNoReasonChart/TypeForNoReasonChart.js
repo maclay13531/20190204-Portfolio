@@ -153,43 +153,11 @@ class TypeForNoReason extends Component {
         }
     }
 
-    updateChartPadding = () => {
-        if (window.innerWidth < 450) {
-            this.setState({
-                chartSize: 250
-            })
-        } else if (window.innerWidth < 750) {
-            this.setState({
-                chartSize: 220
-            })
-        } else if (window.innerWidth < 1000) {
-            this.setState({
-                chartSize: 250
-            })
-        } else if (window.innerWidth < 1300) {
-            this.setState({
-                chartSize: 220
-            })
-        } else {
-            this.setState({
-                chartSize: 250
-            })
-        }
-    }
-
-    componentDidMount = () => {
-        this.updateChartPadding();
-        window.addEventListener('resize', this.updateChartPadding);
-    }
-
-    componentWillUnmount = () => {
-        window.removeEventListener('resize', this.updateChartPadding);
-    }
-
     render() {
         return (
             <div className={styles.TypeForNoReason}>
                 <div className={styles.ChartOne}>
+                    <p>Percentage - Vowel vs Rest</p>
                     <PieChart
                         size={this.state.chartSize}
                         innerHoleSize={150}
@@ -199,6 +167,7 @@ class TypeForNoReason extends Component {
                     />
                 </div>
                 <div className={styles.ChartTwo}>
+                    <p>Percentage - Vowel</p>
                     <PieChart
                         size={this.state.chartSize}
                         innerHoleSize={150}
@@ -208,6 +177,7 @@ class TypeForNoReason extends Component {
                     />
                 </div>
                 <div className={styles.ChartThree}>
+                <p>Percentage - Pronoun</p>
                     <PieChart
                         size={this.state.chartSize}
                         innerHoleSize={150}

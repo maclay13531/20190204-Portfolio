@@ -7,6 +7,33 @@ import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import ProjectModal from './components/ProjectModal/ProjectModal';
 import styles from './App.module.css';
+import Swal from 'sweetalert2';
+import swalIamge from './images/Placement.jpg';
+
+let initialMessage = document.createElement('div');
+initialMessage.style.textAlign = 'left';
+initialMessage.style.fontSize = '14px';
+initialMessage.innerHTML = 
+'<div><strong>UI builder</strong></div>' +
+'<div>React.js</div>' +
+'<div><strong>Deployment platform</strong></div>'+
+'<div>Firebase</div>' +
+'<div><strong>Summary</strong></div>'+
+'<div>When selecting UI builder, it can be tough to justify</div>' +
+'<div>the overhead cost of using react.js for a portfolio.</div>' +
+'<div>However, unlike many other portfolios, I wanted</div>' +
+'<div>to create a SPA with mini projects not redirecting</div>' +
+'<div>to a new URL.</div>' +
+'<div><strong>Objective</strong></div>' +
+`<div>A chance to get to know you! <img src="${swalIamge}" style='width:20px;'></div>`;
+Swal.fire({
+  title: 'Welcome to JP portfolio!',
+  html: initialMessage,
+  type: 'info',
+  confirmButtonText: "Let's start!",
+  allowOutsideClick: false,
+  allowEscapeKey: false
+});
 
 class App extends Component {
   state = {

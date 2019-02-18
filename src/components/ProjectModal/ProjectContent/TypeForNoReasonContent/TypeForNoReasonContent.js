@@ -7,7 +7,7 @@ const typeForNoReasonContent = (props) => {
     return (
         <div className={styles.TypeForNoReasonContent}>
             <div className={styles.Label}> 
-                Type For No Reason Pies
+                Type For No Reason Donuts
             </div>
             <div className={styles.Chart}>
                 <TypeForNoReasonChart 
