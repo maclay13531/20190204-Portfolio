@@ -28,7 +28,6 @@ class WeatherDetailChart extends Component {
         if (this.props.cityName || this.props.cityZip) {
             if (this.props.cityName && this.state.cityName !== this.props.cityName) {
                 let cityName = this.props.cityName;
-                // let cityZip = this.props.cityZip;
                 let url;
                 if (cityName.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/)) {
                     console.log('changed');
@@ -79,39 +78,6 @@ class WeatherDetailChart extends Component {
                         }
                     });
             }
-            // else if (this.props.cityZip && this.state.cityZip !== this.props.cityZip) {
-            //     let cityZip = this.props.cityZip;
-            //     let url = `https://api.openweathermap.org/data/2.5/forecast?zip=${cityZip}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
-            //     axios.get(url)
-            //         .then(response => {
-            //             let cityData = [];
-            //             response.data.list.map((row, index) => {
-            //                 if (index < 8) {
-            //                     let newRow = {
-            //                         x: moment(row.dt_txt).format("hh a"),
-            //                         y: row.main.temp,
-            //                         color: '#4682b4'
-            //                     };
-            //                     cityData.push(newRow);
-            //                 }
-            //                 return cityData;
-            //             });
-            //             this.setState({
-            //                 weatherData: cityData,
-            //                 cityName: this.props.cityName,
-            //                 cityZip: this.props.cityZip
-            //             });
-            //         })
-            //         .catch((error) => {
-            //             if (error.response) {
-            //                 console.log(error.response);
-            //             } else if (error.request) {
-            //                 console.log(error.request);
-            //             } else {
-            //                 console.log('Error', error.message);
-            //             }
-            //         });
-            // }
         }
     }
 

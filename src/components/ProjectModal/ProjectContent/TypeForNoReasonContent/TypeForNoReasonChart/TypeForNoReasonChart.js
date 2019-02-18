@@ -167,7 +167,7 @@ class TypeForNoReason extends Component {
                     />
                 </div>
                 <div className={styles.ChartTwo}>
-                    <p>Percentage - Vowel</p>
+                    <p>Percentage - Total Vowel vs Each Vowel</p>
                     <PieChart
                         size={this.state.chartSize}
                         innerHoleSize={150}
@@ -177,7 +177,7 @@ class TypeForNoReason extends Component {
                     />
                 </div>
                 <div className={styles.ChartThree}>
-                <p>Percentage - Pronoun</p>
+                <p>Percentage - Total Pronoun vs Each Pronoun</p>
                     <PieChart
                         size={this.state.chartSize}
                         innerHoleSize={150}

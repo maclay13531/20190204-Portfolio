@@ -111,25 +111,6 @@ class ProjectModal extends Component {
                         })
                     });
             } 
-            // else {
-            //     let cityZip = this.state.cityZip;
-            //     let url = `https://api.openweathermap.org/data/2.5/weather?zip=${cityZip}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
-            //     axios.get(url)
-            //         .then(response => {
-            //             let cityInfo = {
-            //                 ...this.state.city
-            //             }
-            //             cityInfo[0].output = response.data.name;
-            //             cityInfo[1].output = response.data.main.temp;
-            //             cityInfo[2].output = response.data.weather[0].main;
-            //             cityInfo[3].output = response.data.main.humidity;
-            //             this.setState({
-            //                 weatherData: response.data,
-            //                 cityName: null,
-            //                 cityZip: null
-            //             })
-            //         });
-            // }
         }
 
         if (this.state.userSentence) {
@@ -182,7 +163,7 @@ class ProjectModal extends Component {
                 '<div><strong>Limitation</strong></div>' +
                 '<div>All three charts are visible at min-width of 1200px.</div>' +
                 '<div>Two charts are visible from width of 750px to 1200px</div>' +
-                '<div>a chart is visible at max-width of 750px.</div>';
+                '<div>A chart is visible at max-width of 750px.</div>';
             Swal.fire({
                 title: 'Type For No Reason',
                 html: initialMessageTFNR,
