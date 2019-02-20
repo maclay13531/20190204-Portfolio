@@ -20,8 +20,7 @@ initialMessageTFNR.style.textAlign = 'left';
 initialMessageTFNR.style.fontSize = '14px';
 
 const weatherDetailerProjectController = [
-    { label: 'City Name or Zip Code:' },
-    // { label: 'Zip Code:' }
+    { label: 'City Name or Zip Code:' }
 ];
 
 const typeForNoReasonProjectController = [
